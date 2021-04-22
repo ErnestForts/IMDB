@@ -3,6 +3,7 @@ exports.__esModule = true;
 var clases_1 = require("./clases");
 var clases_2 = require("./clases");
 var clases_3 = require("./clases");
+var readline = require("readline");
 var profe1 = new clases_1.Professional("Brad Pitt", 57, "Male", 78, 180, "Brown", "Blue", "White", false, "American", 1, "Actor");
 var profe2 = new clases_1.Professional("Angelina Jolie", 45, "Famale", 56, 169, "Brown", "Blue", "White", false, "American", 1, "Actress");
 var profe3 = new clases_1.Professional("Morgan Freeman", 83, "Male", 79, 188, "White", "Brown", "Black", false, "American", 1, "Actor");
@@ -58,14 +59,56 @@ movie4.toString();
 var movieArr = new clases_3.Imdb([movie1, movie2, movie3, movie4]);
 movieArr.escribirEnFicheroJSON("imdbBBDD.json");
 console.log(movieArr.obtenersInstanciaImdb("imdbBBDD.json").peliculas);
-var movie5 = new clases_2.Movie("Thor Love and Thunder", 2021, "American", ["Action", "Comedy"]);
-movie5.actors = new Array("Chris Hemsworth", "Tom Hiddlestone", "Michael Bates");
-movie5.director = "Taika Waititi";
-movie5.writer = "Taika Waititi";
-movie5.language = "Inglish";
-movie5.plataform = "WB";
-movie5.isMCU = true;
-movie5.mainCharacterName = "Thor";
-movie5.producer = "Warner Bros";
-movie5.distributor = "Warner Bros";
-movieArr.addToJson(movie5, "imdbBBDD.json");
+var arrayActors = [];
+var arraygenre = [];
+var isMCU = false;
+var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+rl.question("Titulo pelicula: ", function (title) {
+    rl.question("Año estreno: ", function (releaseYear) {
+        rl.question("Actores (separados por comas): ", function (Actors) {
+            arrayActors = Actors.split(',');
+            rl.question("Nacionalidad: ", function (nacionality) {
+                rl.question("Director: ", function (director) {
+                    rl.question("Escritor: ", function (writer) {
+                        rl.question("Idioma: ", function (language) {
+                            rl.question("Plataforma: ", function (plataform) {
+                                rl.question("Es del UCM?(si/no): ", function (esUCM) {
+                                    (esUCM == "si") ? isMCU = true : isMCU = false;
+                                    rl.question("Nombre protagonista: ", function (mainCharacterName) {
+                                        rl.question("Productor: ", function (producer) {
+                                            rl.question("Distribuidor: ", function (distributor) {
+                                                rl.question("Generos (separados por comas): ", function (genre) {
+                                                    arraygenre = genre.split(',');
+                                                    var movie = new clases_2.Movie(title, parseInt(releaseYear), nacionality, arraygenre);
+                                                    movie.actors = arrayActors;
+                                                    movie.director = director;
+                                                    movie.writer = writer;
+                                                    movie.language = language;
+                                                    movie.plataform = plataform;
+                                                    movie.isMCU = isMCU;
+                                                    movie.mainCharacterName = mainCharacterName;
+                                                    movie.producer = producer;
+                                                    movie.distributor = distributor;
+                                                    var imdb = new clases_3.Imdb([movie]);
+                                                    console.log(imdb.peliculas);
+                                                    imdb.addToJson(movie, "imdbBBDD.json");
+                                                    rl.close();
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+});
+rl.on("close", function () {
+    process.exit(0);
+});
