@@ -1,4 +1,4 @@
-class Professional{
+export class Professional{
     public name : string
     public age : number
     public genere : string
@@ -27,4 +27,66 @@ class Professional{
         this.profession = profession
     }
 
+    toString(){
+        console.log(
+                    "\nName: " + this.name,
+                    "\n>Age: " + this.age,
+                    "\nGenere: " + this.genere,
+                    "\nWeight: " + this.weight,
+                    "\nHeight: " + this.height,
+                    "\nHair color: " + this.hairColor,
+                    "\nEye color: " + this.eyeColor,
+                    "\nRace: " + this.race,
+                    "\nIs retired: " + this.isRetired,
+                    "\nNationality: " + this.nationality,
+                    "\nOscars number: " + this.oscarsNumber,
+                    "\nProfession: " + this.profession)
+    }
+}
+export class Movie {
+    public title :string
+    public releaseYear : number
+    public actors : string []
+    public nacionality : string
+    public director : string
+    public writer : string
+    public language : string
+    public plataform : string
+    public isMCU : boolean
+    public mainCharacterName : string
+    public producer : string
+    public distributor : string
+    public genre : string
+
+    constructor(title:string , releaseYear:number, nacionality:string, genre:string){
+        this.title = title
+        this.releaseYear = releaseYear
+        this.nacionality = nacionality
+        this.genre = genre
+    }
+
+    toString(){
+        console.log(
+                    "\nTitle: " + this.title,
+                    "\n>Release year: " + this.releaseYear,
+                    "\nActors: " + this.actors,
+                    "\nNacionality: " + this.nacionality,
+                    "\nDirector: " + this.director,
+                    "\nWriter: " + this.writer,
+                    "\nLanguage: " + this.language,
+                    "\nPlatform: " + this.plataform,
+                    "\nIs MCU: " + this.isMCU,
+                    "\nMain character name: " + this.mainCharacterName,
+                    "\nProducer: " + this.producer,
+                    "\nDistributor: " + this.distributor,
+                    "\nGenre: " + this.genre)
+    }
+}
+
+export class Imdb {
+    public peliculas : Movie[]
+
+    constructor(peliculas:Movie){
+        this.peliculas = new Array (peliculas)
+    }
 }
