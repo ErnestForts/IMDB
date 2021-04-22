@@ -51,6 +51,7 @@ var Imdb = /** @class */ (function () {
     };
     Imdb.prototype.addToJson = function (pelicula, fichero) {
         var imdb = this.obtenersInstanciaImdb(fichero);
+        console.log(imdb.peliculas);
         imdb.peliculas.push(pelicula);
         var jsonStr = JSON.stringify(imdb);
         fs.writeFileSync(fichero, jsonStr);

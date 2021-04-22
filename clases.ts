@@ -99,12 +99,14 @@ export class Imdb {
     obtenersInstanciaImdb(nombreFichero:string):Imdb{
         let file = fs.readFileSync(nombreFichero,'utf8');
         var imdb = new Imdb(JSON.parse(file));
+        
         return imdb;
     }
 
     addToJson(pelicula:Movie,fichero:string){
         var imdb = this.obtenersInstanciaImdb(fichero);
-
+        console.log(imdb.peliculas);
+        
         imdb.peliculas.push(pelicula);
         var jsonStr = JSON.stringify(imdb);
         fs.writeFileSync(fichero, jsonStr);
