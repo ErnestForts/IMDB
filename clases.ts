@@ -30,7 +30,7 @@ export class Professional{
     toString(){
         console.log(
                     "\nName: " + this.name,
-                    "\n>Age: " + this.age,
+                    "\nAge: " + this.age,
                     "\nGenere: " + this.genere,
                     "\nWeight: " + this.weight,
                     "\nHeight: " + this.height,
@@ -56,9 +56,9 @@ export class Movie {
     public mainCharacterName : string
     public producer : string
     public distributor : string
-    public genre : string
+    public genre : string []
 
-    constructor(title:string , releaseYear:number, nacionality:string, genre:string){
+    constructor(title:string , releaseYear:number, nacionality:string, genre:string[]){
         this.title = title
         this.releaseYear = releaseYear
         this.nacionality = nacionality
@@ -68,7 +68,7 @@ export class Movie {
     toString(){
         console.log(
                     "\nTitle: " + this.title,
-                    "\n>Release year: " + this.releaseYear,
+                    "\nRelease year: " + this.releaseYear,
                     "\nActors: " + this.actors,
                     "\nNacionality: " + this.nacionality,
                     "\nDirector: " + this.director,

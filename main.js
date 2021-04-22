@@ -1,0 +1,14 @@
+"use strict";
+exports.__esModule = true;
+var clases_1 = require("./clases");
+var clases_2 = require("./clases");
+var profe1 = new clases_1.Professional("Brad Pitt", 57, "Male", 78, 180, "Brown", "Blue", "White", false, "American", 1, "Actor");
+var profe2 = new clases_1.Professional("Angelina Jolie", 45, "Famale", 56, 169, "Brown", "Blue", "White", false, "American", 1, "Actress");
+var profe3 = new clases_1.Professional("Morgan Freeman", 83, "Male", 79, 188, "White", "Brown", "Black", false, "American", 1, "Actor");
+var profe4 = new clases_1.Professional("Clint Eastwood", 90, "Male", 78, 172, "White", "Blue", "White", true, "American", 5, "Director");
+profe1.toString();
+profe2.toString();
+profe3.toString();
+profe4.toString();
+var movie1 = new clases_2.Movie("Gran Torino", 2008, "American", "Drama / Police");
+movie1.toString();
