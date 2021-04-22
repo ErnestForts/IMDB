@@ -107,7 +107,7 @@ export class Imdb {
         var imdb = this.obtenersInstanciaImdb(fichero);
         console.log(imdb.peliculas);
         
-        this.peliculas.push(pelicula);
+        imdb.peliculas.push(pelicula);
         var jsonStr = JSON.stringify(imdb);
         fs.writeFileSync(fichero, jsonStr);
     }
