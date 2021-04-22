@@ -1,7 +1,6 @@
 import {Professional} from "./clases"
 import {Movie} from "./clases"
 import {Imdb} from "./clases"
-import * as fs from 'fs'
 
 let profe1:Professional = new Professional("Brad Pitt",57,"Male",78,180,"Brown","Blue","White",false,"American",1,"Actor")
 let profe2:Professional = new Professional("Angelina Jolie",45,"Famale",56,169,"Brown","Blue","White",false,"American",1,"Actress")
@@ -64,19 +63,5 @@ movie3.toString()
 movie4.toString()
 
 let movieArr : Imdb = new Imdb ([movie1,movie2,movie3,movie4])
-movieArr.escribirEnFicheroJSON("\\imdbBBDD.json");
-console.log(movieArr.obtenersInstanciaImdb("\\imdbBBDD.json").peliculas);
 
-let movie5:Movie = new Movie("Thor Love and Thunder",2021,"American",["Action","Comedy"]);
-
-movie5.actors = new Array("Chris Hemsworth", "Tom Hiddlestone", "Michael Bates")
-movie5.director = "Taika Waititi"
-movie5.writer = "Taika Waititi"
-movie5.language = "Inglish"
-movie5.plataform = "WB"
-movie5.isMCU = true
-movie5.mainCharacterName = "Thor"
-movie5.producer = "Warner Bros"
-movie5.distributor = "Warner Bros"
-
-movieArr.addToJson(movie5,"\\imdbBBDD.json");
+console.log(movieArr)
