@@ -64,8 +64,8 @@ movie3.toString()
 movie4.toString()
 
 let movieArr : Imdb = new Imdb ([movie1,movie2,movie3,movie4])
-movieArr.escribirEnFicheroJSON("\\imdbBBDD.json");
-console.log(movieArr.obtenersInstanciaImdb("\\imdbBBDD.json").peliculas);
+movieArr.escribirEnFicheroJSON("imdbBBDD.json");
+console.log(movieArr.obtenersInstanciaImdb("imdbBBDD.json").peliculas);
 
 let movie5:Movie = new Movie("Thor Love and Thunder",2021,"American",["Action","Comedy"]);
 
@@ -79,4 +79,4 @@ movie5.mainCharacterName = "Thor"
 movie5.producer = "Warner Bros"
 movie5.distributor = "Warner Bros"
 
-movieArr.addToJson(movie5,"\\imdbBBDD.json");
+movieArr.addToJson(movie5,"imdbBBDD.json");
