@@ -17,4 +17,51 @@ let movie2:Movie = new Movie("Pulp Fiction",1994,"American",["Action", "Drama", 
 let movie3:Movie = new Movie("Mr. & Mrs. Smith",2005,"American",["Action","Comedi"])
 let movie4:Movie = new Movie("A Clockwork Orange",1971,"American",["Drama","Police","Thriller"])
 
+movie1.actors = new Array("Clint Eastwood","Bee Vang","Ahney Her","Christopher Carley")
+movie1.director = "Clint Eastwood"
+movie1.writer = "Nick Schenk"
+movie1.language = "Inglish"
+movie1.plataform = "Netflix"
+movie1.isMCU = false
+movie1.mainCharacterName = "Walt Kowalski"
+movie1.producer = "Warner Bros"
+movie1.distributor = "Warner Bros"
+
+movie2.actors = new Array("John Travolta","Samuel L. Jackson","Uma Thurman","Bruce Willis")
+movie2.director = "Quentin Tarantino"
+movie2.writer = "Quentin Tarantino"
+movie2.language = "Inglish"
+movie2.plataform = "Amazon Prime"
+movie2.isMCU = false
+movie2.mainCharacterName = "Vincent Vega"
+movie2.producer = "Miramax Films"
+movie2.distributor = "Miramax Films"
+
+movie3.actors = new Array("Brad Pitt","Angelina Jolie","Vince Vaughn","Adam Brody")
+movie3.director = "Doug Liman"
+movie3.writer = "Simon Kindberg"
+movie3.language = "Inglish"
+movie3.plataform = "Netflix"
+movie3.isMCU = false
+movie3.mainCharacterName = "John Smith"
+movie3.producer = "Summit Entertainment"
+movie3.distributor = "Fórum Hungary"
+
+movie4.actors = new Array("Malcolm McDowell", "Patrick Magee", "Michael Bates")
+movie4.director = "Stanley Kubrick"
+movie4.writer = "Stanley Kubrick"
+movie4.language = "Inglish"
+movie4.plataform = "Netflix"
+movie4.isMCU = false
+movie4.mainCharacterName = "Alex"
+movie4.producer = "Warner Bros"
+movie4.distributor = "Warner Bros"
+
 movie1.toString()
+movie2.toString()
+movie3.toString()
+movie4.toString()
+
+let movieArr : Imdb = new Imdb ([movie1,movie2,movie3,movie4])
+
+console.log(movieArr)
