@@ -1,3 +1,4 @@
+import * as fs from 'fs'
 export class Professional{
     public name : string
     public age : number
@@ -88,5 +89,24 @@ export class Imdb {
 
     constructor(peliculas:Movie[]){
         this.peliculas = peliculas
+    }
+
+    escribirEnFicheroJSON(nombreFichero:string){
+        var jsonStr = JSON.stringify(this.peliculas);
+        fs.writeFileSync(nombreFichero,jsonStr);
+    }
+
+    obtenersInstanciaImdb(nombreFichero:string):Imdb{
+        let file = fs.readFileSync(nombreFichero,'utf8');
+        var imdb = new Imdb(JSON.parse(file));
+        return imdb;
+    }
+
+    addToJson(pelicula:Movie,fichero:string){
+        var imdb = this.obtenersInstanciaImdb(fichero);
+
+        imdb.peliculas.push(pelicula);
+        var jsonStr = JSON.stringify(imdb);
+        fs.writeFileSync(fichero, jsonStr);
     }
 }

@@ -64,6 +64,19 @@ movie3.toString()
 movie4.toString()
 
 let movieArr : Imdb = new Imdb ([movie1,movie2,movie3,movie4])
-var jsonStr = JSON.stringify(movieArr);
-fs.writeFileSync("C:\\Users\\barbo\\Documents\\imdbBBDD.json",jsonStr);
-console.log(movieArr)
+movieArr.escribirEnFicheroJSON("C:\\Users\\barbo\\Documents\\imdbBBDD.json");
+console.log(movieArr.obtenersInstanciaImdb("C:\\Users\\barbo\\Documents\\imdb.json").peliculas);
+
+let movie5:Movie = new Movie("Thor Love and Thunder",2021,"American",["Action","Comedy"]);
+
+movie5.actors = new Array("Chris Hemsworth", "Tom Hiddlestone", "Michael Bates")
+movie5.director = "Taika Waititi"
+movie5.writer = "Taika Waititi"
+movie5.language = "Inglish"
+movie5.plataform = "WB"
+movie5.isMCU = true
+movie5.mainCharacterName = "Thor"
+movie5.producer = "Warner Bros"
+movie5.distributor = "Warner Bros"
+
+movieArr.addToJson(movie5,"C:\\Users\\barbo\\Documents\\imdbBBDD.json");

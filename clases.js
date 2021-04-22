@@ -1,6 +1,7 @@
 "use strict";
 exports.__esModule = true;
 exports.Imdb = exports.Movie = exports.Professional = void 0;
+var fs = require("fs");
 var Professional = /** @class */ (function () {
     function Professional(name, age, genere, weight, height, hairColor, eyeColor, race, isRetired, nationality, oscarsNumber, profession) {
         this.name = name;
@@ -39,6 +40,21 @@ var Imdb = /** @class */ (function () {
     function Imdb(peliculas) {
         this.peliculas = peliculas;
     }
+    Imdb.prototype.escribirEnFicheroJSON = function (nombreFichero) {
+        var jsonStr = JSON.stringify(this.peliculas);
+        fs.writeFileSync(nombreFichero, jsonStr);
+    };
+    Imdb.prototype.obtenersInstanciaImdb = function (nombreFichero) {
+        var file = fs.readFileSync(nombreFichero, 'utf8');
+        var imdb = new Imdb(JSON.parse(file));
+        return imdb;
+    };
+    Imdb.prototype.addToJson = function (pelicula, fichero) {
+        var imdb = this.obtenersInstanciaImdb(fichero);
+        imdb.peliculas.push(pelicula);
+        var jsonStr = JSON.stringify(imdb);
+        fs.writeFileSync(fichero, jsonStr);
+    };
     return Imdb;
 }());
 exports.Imdb = Imdb;
