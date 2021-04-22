@@ -86,7 +86,7 @@ export class Movie {
 export class Imdb {
     public peliculas : Movie[]
 
-    constructor(peliculas:Movie){
-        this.peliculas = new Array (peliculas)
+    constructor(peliculas:Movie[]){
+        this.peliculas = peliculas;
     }
 }

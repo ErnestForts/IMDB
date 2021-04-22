@@ -1,6 +1,7 @@
 import {Professional} from "./clases"
 import {Movie} from "./clases"
 import {Imdb} from "./clases"
+import * as fs from 'fs'
 
 let profe1:Professional = new Professional("Brad Pitt",57,"Male",78,180,"Brown","Blue","White",false,"American",1,"Actor")
 let profe2:Professional = new Professional("Angelina Jolie",45,"Famale",56,169,"Brown","Blue","White",false,"American",1,"Actress")
@@ -18,3 +19,7 @@ let movie3:Movie = new Movie("Mr. & Mrs. Smith",2005,"American",["Action","Comed
 let movie4:Movie = new Movie("A Clockwork Orange",1971,"American",["Drama","Police","Thriller"])
 
 movie1.toString()
+
+let imdb:Imdb = new Imdb([new Movie("Green Book",2018,"American",["Comedia","Dramatica"]),new Movie("Jurassic Park",1993,"American",["Action", "Aventura", "Ciencia ficción"]), new Movie("Split",2016,"American",["Action", "Terror", "Crime"])])
+var jsonStr = JSON.stringify(imdb);
+fs.writeFileSync("C:\\Users\\barbo\\Documents\\imdbBBDD.json",jsonStr);

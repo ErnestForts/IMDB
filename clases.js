@@ -37,7 +37,7 @@ var Movie = /** @class */ (function () {
 exports.Movie = Movie;
 var Imdb = /** @class */ (function () {
     function Imdb(peliculas) {
-        this.peliculas = new Array(peliculas);
+        this.peliculas = peliculas;
     }
     return Imdb;
 }());
